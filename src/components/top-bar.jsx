@@ -1,7 +1,14 @@
-import React from 'react';
-import { Link,NavLink } from 'react-router-dom';
+import React, { useContext, Fragment } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { CurrentUserContext } from '../contexts/currentUser';
 
 const TopBar = () => {
+   const [currentUserState] = useContext(CurrentUserContext);
+   const { isLoading, isLoggedIn, currentUser } = currentUserState
+   console.log(currentUserState);
+   // console.log(isLoggedIn);
+   // console.log(currentUser);
+   
    return (
       <nav className="navbar navbar-light">
          <div className="container">
@@ -14,16 +21,42 @@ const TopBar = () => {
                      Home
                   </NavLink>
                </li>
-               <li className="nav-item">
-                  <NavLink to="/login" className="navbar-link">
-                     Sign in
+               {isLoggedIn === false && (
+                  <Fragment>
+                     <li className="nav-item">
+                        <NavLink to="/login" className="navbar-link">
+                           Sign in
                   </NavLink>
-               </li>
-               <li className="nav-item">
-                  <NavLink to="/register" className="navbar-link">
-                     Sign up
+                     </li>
+                     <li className="nav-item">
+                        <NavLink to="/register" className="navbar-link">
+                           Sign up
                   </NavLink>
-               </li>
+                     </li>
+                  </Fragment>
+               )}
+               {isLoggedIn && (
+                  <Fragment>
+                     <li className='nav-item'>
+                        <NavLink
+                           to={`/profiles/${currentUser.username}`}
+                           className="navbar-link">
+                           <img className="user-pic"
+                              src={currentUser.image}
+                              alt=" " />
+                           &nbsp;{currentUser.username}
+                        </NavLink>
+                     </li>
+                     <li className='nav-item'>
+                        <NavLink to="/articles/new"
+                           className="navbar-link">
+                           <i className='ion-compose'></i>
+                           &nbsp; New Post
+                        </NavLink>
+                     </li>
+                  </Fragment>
+               )}
+
             </ul>
          </div>
       </nav>

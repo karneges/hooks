@@ -17,10 +17,9 @@ const Authentication = (props) => {
   const [password, setPassword] = useState('');
   const [isSuccessfulSubmit,setIsSuccessfulSubmit] = useState(false)
   const [{ isLoading, response,error}, doFetch] = useFetch(apiUrl);
-  const [token,setToken] = useLocalStorage('token')
-  const [currentUserState,setCurrentUserState] = useContext(CurrentUserContext)
+  const [,setToken] = useLocalStorage('token')
+  const [,setCurrentUserState] = useContext(CurrentUserContext)
 
-  console.log(currentUserState);
   
   const onhandleSubmit = (event) => {
     event.preventDefault();
@@ -34,6 +33,7 @@ const Authentication = (props) => {
   }
   useEffect(() => {
     if (!response) {
+      
       return
     }
     setToken(response.user.token)
@@ -43,7 +43,7 @@ const Authentication = (props) => {
         ...state,
         isLoggedIn:true,
         isLoading:false,
-        currenUser:response.user
+        currentUser:response.user
       }
     })
   }, [response,setToken,setCurrentUserState])

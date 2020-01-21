@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './route';
 import TopBar from './components/top-bar';
-import { CurrentUserContext, CurrentUserProvider } from './contexts/currentUser';
+import {  CurrentUserProvider } from './contexts/currentUser';
 import CurrentUserCheker from './components/current-user-cheker';
 const App = () => {
     return (

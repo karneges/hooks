@@ -1,11 +1,11 @@
-import React, { useEffect, useContext } from 'react';
+import  { useEffect, useContext } from 'react';
 import useFetch from '../hooks/useFetch';
 import { CurrentUserContext } from '../contexts/currentUser';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 
 const CurrentUserCheker = ({ children }) => {
-  const [CurrentUserState, setCurrentUserState] = useContext(CurrentUserContext)
+  const [, setCurrentUserState] = useContext(CurrentUserContext)
   const [{ response }, doFetch] = useFetch('/user')
   const [token] = useLocalStorage('token')
 
@@ -27,21 +27,22 @@ const CurrentUserCheker = ({ children }) => {
         isLoading: true
       }
     })
-  }, [])
+  }, [doFetch, setCurrentUserState, token])
 
-  useEffect(() => {
-    if(!response){
-      return
-    }
-    setCurrentUserState((state) => {
-      return {
-       ...state,
-       isLoading: false,
-       isLoggedIn: true,
-       currentUser: response.user
-      }
-    })
-  },[response])
+  // useEffect(() => {
+  //   if(!response){
+  //     return
+  //   }
+  //   setCurrentUserState((state) => {
+  //     return {
+  //      ...state,
+  //      isLoading: false,
+  //      currentUser: response.user,
+  //      isLoggedIn: true,
+       
+  //     }
+  //   })
+  // },[response, setCurrentUserState])
 
   return children
 }
