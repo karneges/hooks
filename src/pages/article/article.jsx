@@ -14,7 +14,6 @@ const Article = props => {
   useEffect(() => {
     doFetch();
   }, [doFetch]);
-  console.log(response, error, isLoading);
 
   return (
     <div className="article-page">

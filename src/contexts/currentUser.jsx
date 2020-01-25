@@ -34,7 +34,6 @@ const CurrentUserContext = createContext();
 const CurrentUserProvider = ({ children }) => {
 
   const store = useReducer(reducer,initialState)
-  console.log(store);
   
   return (
     <CurrentUserContext.Provider value={store}>
