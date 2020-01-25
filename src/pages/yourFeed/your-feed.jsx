@@ -6,13 +6,13 @@ import Feed from '../../components/feed'
 import useFetch from '../../hooks/useFetch'
 import Pagination from '../../components/pagination'
 import { getPaginator ,limit} from '../../utils/utils'
-import PopularTags from '../../components/popular-tags'
 import Loading from '../authentication/components/loading'
 import ErrorMessage from '../authentication/components/error-messag'
 import FeedToggler from '../../components/feed-togler'
+import PopularTags from '../../components/popular-tags'
 
 
-const GlobalFeed = ({location,match}) => {
+const YourFeed = ({location,match}) => {
 const {offset,currentPage} = getPaginator(location.search)
   const stringifyParams = stringify({
     limit,
@@ -21,7 +21,9 @@ const {offset,currentPage} = getPaginator(location.search)
   const url = match.url
 
   
-  const apiUrl = `/articles?${stringifyParams}`    
+  const apiUrl = `/articles/feed?${stringifyParams}`  
+  console.log(apiUrl);
+  
   const [{response, error, isLoading}, doFetch] = useFetch(apiUrl)
   useEffect(() => {
     doFetch()
@@ -54,4 +56,4 @@ const {offset,currentPage} = getPaginator(location.search)
   )
 }
 
-export default GlobalFeed
+export default YourFeed;

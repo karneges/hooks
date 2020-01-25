@@ -29,20 +29,20 @@ const CurrentUserCheker = ({ children }) => {
     })
   }, [doFetch, setCurrentUserState, token])
 
-  // useEffect(() => {
-  //   if(!response){
-  //     return
-  //   }
-  //   setCurrentUserState((state) => {
-  //     return {
-  //      ...state,
-  //      isLoading: false,
-  //      currentUser: response.user,
-  //      isLoggedIn: true,
+  useEffect(() => {
+    if(!response){
+      return
+    }
+    setCurrentUserState((state) => {
+      return {
+       ...state,
+       isLoading: false,
+       currentUser: response.user,
+       isLoggedIn: true,
        
-  //     }
-  //   })
-  // },[response, setCurrentUserState])
+      }
+    })
+  },[response, setCurrentUserState])
 
   return children
 }

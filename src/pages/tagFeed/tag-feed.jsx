@@ -6,26 +6,30 @@ import Feed from '../../components/feed'
 import useFetch from '../../hooks/useFetch'
 import Pagination from '../../components/pagination'
 import { getPaginator ,limit} from '../../utils/utils'
-import PopularTags from '../../components/popular-tags'
 import Loading from '../authentication/components/loading'
 import ErrorMessage from '../authentication/components/error-messag'
 import FeedToggler from '../../components/feed-togler'
+import PopularTags from '../../components/popular-tags'
 
 
-const GlobalFeed = ({location,match}) => {
+const TagFeed = ({location,match}) => {
+  const tagName = match.params.slug
 const {offset,currentPage} = getPaginator(location.search)
   const stringifyParams = stringify({
     limit,
     offset,
+    tag:tagName
   })
   const url = match.url
 
   
-  const apiUrl = `/articles?${stringifyParams}`    
+  const apiUrl = `/articles?${stringifyParams}`  
+  console.log(apiUrl);
+  
   const [{response, error, isLoading}, doFetch] = useFetch(apiUrl)
   useEffect(() => {
     doFetch()
-  }, [doFetch,apiUrl])
+  }, [doFetch,apiUrl,tagName])
 
   return (
     <div className="home-page">
@@ -36,7 +40,7 @@ const {offset,currentPage} = getPaginator(location.search)
       <div className="container page">
         <div className="row">
           <div className="col-md-9">
-            <FeedToggler />
+            <FeedToggler tagName={tagName}/>
             {isLoading && <Loading/>}
             {error && <ErrorMessage/>}
             {!isLoading && response && (
@@ -54,4 +58,4 @@ const {offset,currentPage} = getPaginator(location.search)
   )
 }
 
-export default GlobalFeed
+export default TagFeed;
