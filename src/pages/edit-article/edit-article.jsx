@@ -9,7 +9,9 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/currentUser";
 
 const EditArticle = ({ match }) => {
-  const {currentUserState} = useContext(CurrentUserContext)
+  const [currentUserState] = useContext(CurrentUserContext)
+
+  
   const slug = match.params.slug;
   const apiUrl = `/articles/${slug}`;
 
@@ -56,7 +58,9 @@ useEffect (() => {
 if (isSuccessfullSubmit) {
   return <Redirect to={`articles/${slug}`}/>
 }
-if (!currentUserState.isLoggedIn === false) {
+if (currentUserState.isLoggedIn === false) {
+  console.log();
+  
   return <Redirect to='/'/>
 }
   return (
