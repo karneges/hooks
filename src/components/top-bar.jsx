@@ -5,7 +5,7 @@ import { CurrentUserContext } from '../contexts/currentUserContext';
 const TopBar = () => {
    const [currentUserState] = useContext(CurrentUserContext);
    const {  isLoggedIn, currentUser } = currentUserState
-console.log(currentUserState);
+
 
    
    return (

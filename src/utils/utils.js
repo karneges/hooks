@@ -1,5 +1,5 @@
 import {parse} from 'query-string'
-
+import { stringify } from "query-string";
 export const range = (start,end) => {
   const arr = [];
   for (let i = start; i <= end; i++) {
@@ -19,3 +19,11 @@ export const getPaginator = (search) => {
   return {currentPage,offset}
 
 }
+
+export const getApiUrl = ({ username, offset, isFavorites }) => {
+  const pararms = isFavorites
+    ? { limit, offset, favorited: username }
+    : { limit, offset, author: username };
+
+    return `/articles?${stringify(pararms)}`
+};
