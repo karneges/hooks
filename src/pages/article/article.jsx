@@ -6,7 +6,7 @@ import ErrorMessage from "../authentication/components/error-messag";
 import TagList from "../../components/tag-list";
 import { Link, Redirect } from "react-router-dom";
 import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/currentUser";
+import { CurrentUserContext } from "../../contexts/currentUserContext";
 import { useState } from "react";
 
 const Article = props => {
@@ -23,7 +23,7 @@ const Article = props => {
   const [{ response: deleteArticleResponse }, doDeleteArticle] = useFetch(
     apiUrl
   );
-  const [isSuccessfullDelete,setIsSuccessfullDelete] = useState(false)
+  const [isSuccessfullDelete, setIsSuccessfullDelete] = useState(false);
   const [currentUserState] = useContext(CurrentUserContext);
 
   const isAuthor = () => {
@@ -41,13 +41,11 @@ const Article = props => {
   }, [doFetch]);
 
   useEffect(() => {
-    if(!deleteArticleResponse) {
-      return
+    if (!deleteArticleResponse) {
+      return;
     }
-     setIsSuccessfullDelete(true)
-
-  },[deleteArticleResponse])
-
+    setIsSuccessfullDelete(true);
+  }, [deleteArticleResponse]);
 
   const onDeleteArticle = () => {
     doDeleteArticle({
@@ -55,7 +53,7 @@ const Article = props => {
     });
   };
   if (isSuccessfullDelete) {
-    return <Redirect to='/'/>
+    return <Redirect to="/" />;
   }
 
   return (

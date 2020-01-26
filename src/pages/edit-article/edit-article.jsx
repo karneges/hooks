@@ -6,7 +6,7 @@ import { useState } from "react";
 import Loading from "../authentication/components/loading";
 import { Redirect } from "react-router-dom";
 import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/currentUser";
+import { CurrentUserContext } from "../../contexts/currentUserContext";
 
 const EditArticle = ({ match }) => {
   const [currentUserState] = useContext(CurrentUserContext)

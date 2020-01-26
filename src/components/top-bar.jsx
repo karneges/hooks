@@ -1,10 +1,11 @@
 import React, { useContext, Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { CurrentUserContext } from '../contexts/currentUser';
+import { CurrentUserContext } from '../contexts/currentUserContext';
 
 const TopBar = () => {
    const [currentUserState] = useContext(CurrentUserContext);
    const {  isLoggedIn, currentUser } = currentUserState
+console.log(currentUserState);
 
    
    return (
@@ -43,6 +44,13 @@ const TopBar = () => {
                               src={currentUser.image}
                               alt=" " />
                            &nbsp;{currentUser.username}
+                        </NavLink>
+                     </li>
+                     <li className='nav-item'>
+                        <NavLink to="/settings"
+                           className="navbar-link">
+                           <i className='ion-gear-a'></i>
+                           &nbsp; Settings
                         </NavLink>
                      </li>
                      <li className='nav-item'>
