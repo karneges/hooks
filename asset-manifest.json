@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mediumclone/static/css/main.06c3eb20.chunk.css",
+    "main.js": "/mediumclone/static/js/main.b8e0d064.chunk.js",
+    "main.js.map": "/mediumclone/static/js/main.b8e0d064.chunk.js.map",
+    "runtime-main.js": "/mediumclone/static/js/runtime-main.f1510aad.js",
+    "runtime-main.js.map": "/mediumclone/static/js/runtime-main.f1510aad.js.map",
+    "static/js/2.efb61906.chunk.js": "/mediumclone/static/js/2.efb61906.chunk.js",
+    "static/js/2.efb61906.chunk.js.map": "/mediumclone/static/js/2.efb61906.chunk.js.map",
+    "index.html": "/mediumclone/index.html",
+    "precache-manifest.7d7d252fbfae7f786422ab2f0095653b.js": "/mediumclone/precache-manifest.7d7d252fbfae7f786422ab2f0095653b.js",
+    "service-worker.js": "/mediumclone/service-worker.js",
+    "static/css/main.06c3eb20.chunk.css.map": "/mediumclone/static/css/main.06c3eb20.chunk.css.map",
+    "static/js/2.efb61906.chunk.js.LICENSE": "/mediumclone/static/js/2.efb61906.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f1510aad.js",
+    "static/js/2.efb61906.chunk.js",
+    "static/css/main.06c3eb20.chunk.css",
+    "static/js/main.b8e0d064.chunk.js"
+  ]
+}
