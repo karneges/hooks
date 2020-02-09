@@ -27,7 +27,8 @@ const Article = props => {
   const [currentUserState] = useContext(CurrentUserContext);
 
   const isAuthor = () => {
-    if (!fetchArticleResponse || !currentUserState) {
+    debugger
+    if (!fetchArticleResponse || !currentUserState.currentUser) {
       return false;
     }
     return (

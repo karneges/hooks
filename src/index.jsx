@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import Routes from './route';
 import TopBar from './components/top-bar';
 import {  CurrentUserProvider } from './contexts/currentUserContext';

@@ -14,7 +14,7 @@ import UserProfile from './pages/user-profile/user-profile';
 export default () => {
     return (
         <Switch>
-            <Route path="/" exact component={GlobalFeed}/>
+
             <Route path="/settings" exact component={Settings}/>
             <Route path="/profiles/:slug" exact  component={UserProfile}/>
             <Route path="/profiles/:slug/favorites"  component={UserProfile}/>
@@ -25,6 +25,7 @@ export default () => {
             <Route path="/login" component={Authentication}/>
             <Route path="/register" component={Authentication}/>
             <Route path="/articles/:slug" component={Article}/>
+            <Route path="/"  component={GlobalFeed}/>
         </Switch>
     )
 }

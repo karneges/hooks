@@ -16,7 +16,6 @@ const UserArticles = ({ username, location, isFavorites,url }) => {
 
   useEffect(() => {
     doFetch()
-
   },[doFetch,isFavorites,apiUrl])
   console.log(response);
   
